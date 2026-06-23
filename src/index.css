@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* dark theme */
+:root, [data-theme="dark"] {
+  --bg:          #0a0f1e;
+  --bg-2:        #0d1627;
+  --bg-3:        #111827;
+  --bg-card:     rgba(255,255,255,0.03);
+  --border:      rgba(255,255,255,0.06);
+  --border-2:    rgba(255,255,255,0.12);
+  --text:        #e2e8f0;
+  --text-2:      #94a3b8;
+  --text-3:      #64748b;
+  --header-bg:   rgba(10,15,30,0.85);
+}
+
+/* light theme */
+[data-theme="light"] {
+  --bg:          #f0f6ff;
+  --bg-2:        #e4edf8;
+  --bg-3:        #d4e3f4;
+  --bg-card:     #ffffff;
+  --border:      rgba(14,165,233,0.30);
+  --border-2:    rgba(14,165,233,0.55);
+  --text:        #0f172a;
+  --text-2:      #1e3a5f;
+  --text-3:      #475569;
+  --header-bg:   rgba(240,246,255,0.95);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", "Google Sans", ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+
+/* Timeline pan */
+.timeline-canvas { cursor: grab; user-select: none; }
+.timeline-canvas:active { cursor: grabbing; }
+
+/* Shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-3) 25%, var(--border-2) 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Gradient mesh blobs */
+@keyframes blob1 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  33%      { transform: translate(60px,  -80px) scale(1.15); }
+  66%      { transform: translate(-40px,  50px) scale(0.9);  }
+}
+@keyframes blob2 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  33%      { transform: translate(-70px, 60px)  scale(1.1);  }
+  66%      { transform: translate(50px,  -60px) scale(0.95); }
+}
+@keyframes blob3 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  25%      { transform: translate(80px,  40px)  scale(1.2);  }
+  75%      { transform: translate(-50px,-70px)  scale(0.85); }
+}
+@keyframes blob4 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  40%      { transform: translate(-60px,-40px)  scale(1.1);  }
+  80%      { transform: translate(70px,  60px)  scale(0.9);  }
+}
+@keyframes blob5 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  50%      { transform: translate(50px, -90px)  scale(1.15); }
+}
+@keyframes blob6 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  60%      { transform: translate(-80px, 50px)  scale(1.1);  }
+}
+
+/* Sticker hop */
+@keyframes hop {
+  0%,100% { transform: translateY(0px) rotate(-2deg); }
+  50%      { transform: translateY(-8px) rotate(2deg); }
+}
+.sticker-idle { animation: hop 2.5s ease-in-out infinite; }
+
+/* Timeline directional arrow animations */
+@keyframes arrow-bounce-right {
+  0%,100% { transform: translateX(0px); opacity: 0.75; }
+  50%      { transform: translateX(6px);  opacity: 1; }
+}
+@keyframes arrow-bounce-left {
+  0%,100% { transform: translateX(0px);  opacity: 0.75; }
+  50%      { transform: translateX(-6px); opacity: 1; }
+}
+@keyframes arrow-bounce-up {
+  0%,100% { transform: translateY(0px);  opacity: 0.75; }
+  50%      { transform: translateY(-6px); opacity: 1; }
+}
+@keyframes arrow-bounce-down {
+  0%,100% { transform: translateY(0px); opacity: 0.75; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+.arrow-right { animation: arrow-bounce-right 1.4s ease-in-out infinite; }
+.arrow-left  { animation: arrow-bounce-left  1.4s ease-in-out infinite; }
+.arrow-up    { animation: arrow-bounce-up    1.4s ease-in-out infinite; }
+.arrow-down  { animation: arrow-bounce-down  1.4s ease-in-out infinite; }
+
+/* Speech bubble tail */
+.bubble-tail::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--bg-3);
+}
+
+/* Output prose */
+.prose-gemma p  { margin: 0.5rem 0; line-height: 1.7; }
+.prose-gemma strong { color: #38bdf8; }
+.prose-gemma em     { color: #2dd4bf; }
+.prose-gemma code {
+  background: var(--bg-3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: ui-monospace, monospace;
+}
