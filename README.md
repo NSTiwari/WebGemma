@@ -37,8 +37,8 @@ Includes a visual timeline of the Gemma model family from 2024 to present, and s
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/NSTiwari/webgemma.git
-cd webgemma
+git clone https://github.com/NSTiwari/WebGemma.git
+cd WebGemma
 
 # 2. Install dependencies
 npm install
