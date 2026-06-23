@@ -4,7 +4,7 @@ A browser-based playground for running Gemma models entirely on-device using Web
 
 Includes a visual timeline of the Gemma model family from 2024 to present, and support for Gemini Nano via Chrome's built-in AI APIs.
 
-**Live demo:** [https://your-deployment-url.com](https://your-deployment-url.com)
+**LIVE demo:** [https://your-deployment-url.com](https://your-deployment-url.com)
 
 ---
 
