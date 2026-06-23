@@ -490,11 +490,6 @@ export function Timeline({ onNavigateModel }: { onNavigateModel: (modelId: strin
     return () => ro.disconnect();
   }, [getMinZoom]);
 
-  const pixPerUnit = cSize.h > 0 ? (cSize.h * zoom) / MAP_H : 0;
-  const bgW   = MAP_W * pixPerUnit;
-  const bgH   = MAP_H * pixPerUnit;
-  const bgX   = cSize.w / 2 - center.x * pixPerUnit;
-  const bgY   = cSize.h / 2 - center.y * pixPerUnit;
 
   const getViewBox = useCallback(() => {
     const aspect = cSize.h > 0 ? cSize.w / cSize.h : MAP_W / MAP_H;
