@@ -73,9 +73,3 @@ npm run preview
 Restart Chrome after enabling flags and allow a few minutes for the on-device model to download.
 
 **iOS and Firefox.** WebGPU support on iOS Safari is partial. Firefox does not ship WebGPU by default.
-
----
-
-## License
-
-Apache 2.0
